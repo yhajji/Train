@@ -7,7 +7,6 @@ public class Cargo extends Wagon {
         this.wagonPaint = "|____|";
     }
 
-    @Override
     public void fill() {
         this.empty = false;
     }

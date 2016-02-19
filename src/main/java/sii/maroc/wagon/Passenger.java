@@ -6,4 +6,8 @@ class Passenger extends Wagon {
         this.wagonPaint = "|OOOO|";
     }
 
+    @Override
+    public void fill() {
+    }
+
 }

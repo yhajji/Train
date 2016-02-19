@@ -1,10 +1,7 @@
-package sii.maroc.train;
+package sii.maroc.wagon;
 
 import java.util.LinkedList;
 import java.util.ListIterator;
-
-import sii.maroc.wagon.Cargo;
-import sii.maroc.wagon.Wagon;
 
 public class CargoFiller {
     private static CargoFiller instance;

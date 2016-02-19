@@ -23,4 +23,8 @@ class Head extends Wagon {
             return "HHHH>";
     }
 
+    @Override
+    public void fill() {
+    }
+
 }

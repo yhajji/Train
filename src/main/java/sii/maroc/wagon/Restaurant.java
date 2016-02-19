@@ -6,4 +6,8 @@ class Restaurant extends Wagon {
         this.wagonPaint = "|hThT|";
     }
 
+    @Override
+    public void fill() {
+    }
+
 }

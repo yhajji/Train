@@ -7,7 +7,6 @@ public abstract class Wagon {
         return wagonPaint;
     }
 
-    public void fill() {
-    }
+    abstract void fill();
 
 }

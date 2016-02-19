@@ -1,19 +1,31 @@
 package sii.maroc.wagon;
 
-public class WagonFactory {
-    private static WagonFactory instance;
+import java.util.LinkedList;
 
-    private WagonFactory() {
+public class WagonsFactory {
+    private static WagonsFactory instance;
+
+    private WagonsFactory() {
     }
 
-    public static WagonFactory getInstance() {
+    public static WagonsFactory getInstance() {
         if (instance == null) {
-            instance = new WagonFactory();
+            instance = new WagonsFactory();
         }
         return instance;
     }
 
-    public Wagon createWagon(char WagonString) {
+    public LinkedList<Wagon> buildWagons(String wagonString) {
+        String wagonStr = wagonString.replaceAll("[H]$", "E");
+        LinkedList<Wagon> wagons = new LinkedList<>();
+        for (int i = 0, n = wagonStr.length(); i < n; i++) {
+            char c = wagonStr.charAt(i);
+            wagons.add(createWagon(c));
+        }
+        return wagons;
+    }
+
+    private Wagon createWagon(char WagonString) {
         final Wagon wagon;
         switch (WagonString) {
         case 'H':
