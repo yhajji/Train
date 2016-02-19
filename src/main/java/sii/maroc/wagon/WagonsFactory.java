@@ -16,10 +16,10 @@ public class WagonsFactory {
     }
 
     public LinkedList<Wagon> buildWagons(String wagonString) {
-        String wagonStr = wagonString.replaceAll("[H]$", "E");
-        LinkedList<Wagon> wagons = new LinkedList<>();
+        final String wagonStr = wagonString.replaceAll("[H]$", "E");
+        final LinkedList<Wagon> wagons = new LinkedList<>();
         for (int i = 0, n = wagonStr.length(); i < n; i++) {
-            char c = wagonStr.charAt(i);
+            final char c = wagonStr.charAt(i);
             wagons.add(createWagon(c));
         }
         return wagons;

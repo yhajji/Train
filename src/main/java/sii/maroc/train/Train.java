@@ -20,12 +20,11 @@ public class Train {
 
     public void detachHead() {
         wagons.removeFirst();
-
     }
 
     public boolean fill() {
         for (ListIterator<Wagon> wagonIterator = wagons.listIterator(); wagonIterator.hasNext();) {
-            Wagon wagon = (Wagon) wagonIterator.next();
+            final Wagon wagon = (Wagon) wagonIterator.next();
             if (wagon.isEmpty()) {
                 wagon.fill();
                 return true;
@@ -35,9 +34,9 @@ public class Train {
     }
 
     public String print() {
-        StringBuilder paintTrain = new StringBuilder();
+        final StringBuilder paintTrain = new StringBuilder();
         for (ListIterator<Wagon> wagonIterator = wagons.listIterator(); wagonIterator.hasNext();) {
-            Wagon wagon = (Wagon) wagonIterator.next();
+            final Wagon wagon = (Wagon) wagonIterator.next();
             paintTrain.append(wagon.paint());
             if (wagonIterator.hasNext())
                 paintTrain.append("::");

@@ -1,6 +1,6 @@
 package sii.maroc.wagon;
 
-public class Cargo extends Wagon {
+class Cargo extends Wagon {
     private boolean empty = true;
 
     public Cargo() {
