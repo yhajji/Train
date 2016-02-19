@@ -24,9 +24,8 @@ public class Train {
     }
 
     public boolean fill() {
-        final ListIterator<Wagon> wagonIterator = wagons.listIterator();
-        while (wagonIterator.hasNext()) {
-            Wagon wagon = wagonIterator.next();
+        for (ListIterator<Wagon> wagonIterator = wagons.listIterator(); wagonIterator.hasNext();) {
+            Wagon wagon = (Wagon) wagonIterator.next();
             if (wagon.isEmpty()) {
                 wagon.fill();
                 return true;
@@ -37,17 +36,13 @@ public class Train {
 
     public String print() {
         StringBuilder paintTrain = new StringBuilder();
-        paintWagons(paintTrain);
-        return paintTrain.toString();
-    }
-
-    private void paintWagons(StringBuilder paintTrain) {
-        final ListIterator<Wagon> wagonIterator = wagons.listIterator();
-        while (wagonIterator.hasNext()) {
-            paintTrain.append(wagonIterator.next().paint());
+        for (ListIterator<Wagon> wagonIterator = wagons.listIterator(); wagonIterator.hasNext();) {
+            Wagon wagon = (Wagon) wagonIterator.next();
+            paintTrain.append(wagon.paint());
             if (wagonIterator.hasNext())
                 paintTrain.append("::");
         }
+        return paintTrain.toString();
     }
 
 }
