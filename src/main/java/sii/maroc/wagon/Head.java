@@ -27,4 +27,9 @@ class Head extends Wagon {
     public void fill() {
     }
 
+    @Override
+    public boolean isEmpty() {
+        return false;
+    }
+
 }

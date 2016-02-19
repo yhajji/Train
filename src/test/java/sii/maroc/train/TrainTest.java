@@ -59,4 +59,10 @@ public class TrainTest {
         assertEquals("<HHHH::|OOOO|::|^^^^|::|OOOO|::|^^^^|", train.print());
         assertFalse(train.fill());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void unknownWagonTrain() {
+        Train train = new Train("HAP");
+    }
+
 }

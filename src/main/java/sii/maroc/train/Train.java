@@ -3,7 +3,6 @@ package sii.maroc.train;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-import sii.maroc.wagon.Cargo;
 import sii.maroc.wagon.Wagon;
 import sii.maroc.wagon.WagonsFactory;
 
@@ -28,20 +27,10 @@ public class Train {
         final ListIterator<Wagon> wagonIterator = wagons.listIterator();
         while (wagonIterator.hasNext()) {
             Wagon wagon = wagonIterator.next();
-            if (checkIfEmptyCargo(wagon)) {
-                Cargo cargo = (Cargo) wagon;
-                cargo.fill();
-                break;
-            }
-        }
-        return false;
-    }
-
-    private boolean checkIfEmptyCargo(Wagon wagon) {
-        if (wagon instanceof Cargo) {
-            Cargo cargo = (Cargo) wagon;
-            if (cargo.isEmpty())
+            if (wagon.isEmpty()) {
+                wagon.fill();
                 return true;
+            }
         }
         return false;
     }
