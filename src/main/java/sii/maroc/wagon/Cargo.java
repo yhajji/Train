@@ -8,15 +8,15 @@ class Cargo extends Wagon {
     private CargoState cargoState = CargoState.EMPTY;
 
     public Cargo() {
-        this.wagonPaint = "|____|";
+    	this.wagonPaint = "|____|";
     }
 
     public void fill() {
-        this.wagonPaint = "|^^^^|";
+        this.wagonPaint = "|^^^^|";        
         this.cargoState = CargoState.FULL;
     }
 
-    public boolean isEmptyCargo() {
+    public boolean isEmpty() {
         return (cargoState == CargoState.EMPTY);
     }
 }

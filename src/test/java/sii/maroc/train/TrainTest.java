@@ -2,6 +2,7 @@ package sii.maroc.train;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -40,11 +41,20 @@ public class TrainTest {
         assertEquals("|OOOO|::|hThT|::|OOOO|", train.print());
         train.detachEnd();
         assertEquals("|OOOO|::|hThT|", train.print());
+    }
+
+    @Test
+    public void modifyTrainUntilOneWagon() {
+        Train train = new Train("HPPH");
+        train.detachEnd();
+        assertEquals("<HHHH::|OOOO|::|OOOO|", train.print());
+        train.detachHead();
+        assertFalse(train.fill());
+        assertEquals("|OOOO|::|OOOO|", train.print());
         train.detachEnd();
         assertEquals("|OOOO|", train.print());
         train.detachEnd();
-        assertEquals("", train.print());
-        train.detachEnd();
+        train.detachHead();
 
     }
 
@@ -56,7 +66,8 @@ public class TrainTest {
         assertEquals("<HHHH::|^^^^|::|____|::|____|", train.print());
         train.fill();
         assertEquals("<HHHH::|^^^^|::|^^^^|::|____|", train.print());
-        train.fill();
+        assertTrue(train.fill());
+        // train.fill();
         assertEquals("<HHHH::|^^^^|::|^^^^|::|^^^^|", train.print());
         assertFalse(train.fill());
     }
@@ -67,8 +78,10 @@ public class TrainTest {
         assertEquals("<HHHH::|OOOO|::|____|::|OOOO|::|____|", train.print());
         train.fill();
         assertEquals("<HHHH::|OOOO|::|^^^^|::|OOOO|::|____|", train.print());
+        assertTrue(train.fill());
         train.fill();
         assertEquals("<HHHH::|OOOO|::|^^^^|::|OOOO|::|^^^^|", train.print());
+
         assertFalse(train.fill());
     }
 

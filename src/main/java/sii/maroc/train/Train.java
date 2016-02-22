@@ -16,19 +16,20 @@ public class Train {
     }
 
     public void detachEnd() {
-        if (wagons.size() > 0)
+        if (wagons.size() >0)
             wagons.removeLast();
     }
 
     public void detachHead() {
         if (wagons.size() > 0)
             wagons.removeFirst();
+
     }
 
     public boolean fill() {
         for (ListIterator<Wagon> wagonIterator = wagons.listIterator(); wagonIterator.hasNext();) {
             final Wagon wagon = (Wagon) wagonIterator.next();
-            if (wagon.isEmptyCargo()) {
+            if (wagon.isEmpty()) {
                 wagon.fill();
                 return true;
             }

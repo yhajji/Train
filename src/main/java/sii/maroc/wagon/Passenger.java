@@ -11,7 +11,7 @@ class Passenger extends Wagon {
     }
 
     @Override
-    public boolean isEmptyCargo() {
+    public boolean isEmpty() {
         return false;
     }
 
