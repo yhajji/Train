@@ -10,22 +10,25 @@ public class Train {
 
     private LinkedList<Wagon> wagons;
 
-    public Train(String wagonString) {
-        wagons = WagonsFactory.getInstance().buildWagons(wagonString);
+    public Train(final String wagonString) {
+        WagonsFactory wagonFactory = WagonsFactory.getInstance();
+        wagons = wagonFactory.buildWagons(wagonString);
     }
 
     public void detachEnd() {
-        wagons.removeLast();
+        if (wagons.size() > 0)
+            wagons.removeLast();
     }
 
     public void detachHead() {
-        wagons.removeFirst();
+        if (wagons.size() > 0)
+            wagons.removeFirst();
     }
 
     public boolean fill() {
         for (ListIterator<Wagon> wagonIterator = wagons.listIterator(); wagonIterator.hasNext();) {
             final Wagon wagon = (Wagon) wagonIterator.next();
-            if (wagon.isEmpty()) {
+            if (wagon.isEmptyCargo()) {
                 wagon.fill();
                 return true;
             }

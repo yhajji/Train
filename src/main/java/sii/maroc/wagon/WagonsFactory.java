@@ -15,17 +15,17 @@ public class WagonsFactory {
         return instance;
     }
 
-    public LinkedList<Wagon> buildWagons(String wagonString) {
-        final String wagonStr = wagonString.replaceAll("[H]$", "E");
+    public LinkedList<Wagon> buildWagons(String wagonLettres) {
+        wagonLettres = wagonLettres.replaceAll("H$", "E");
         final LinkedList<Wagon> wagons = new LinkedList<>();
-        for (int i = 0, n = wagonStr.length(); i < n; i++) {
-            final char c = wagonStr.charAt(i);
+        for (int i = 0, n = wagonLettres.length(); i < n; i++) {
+            final char c = wagonLettres.charAt(i);
             wagons.add(createWagon(c));
         }
         return wagons;
     }
 
-    private Wagon createWagon(char WagonString) {
+    private Wagon createWagon(final char WagonString) {
         final Wagon wagon;
         switch (WagonString) {
         case 'H':

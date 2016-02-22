@@ -2,25 +2,13 @@ package sii.maroc.wagon;
 
 class Head extends Wagon {
 
-    enum HeadType {
-        HEAD, END
-    }
+    public Head(final String headType) {
+        if (headType.equals("HEAD")) {
+            this.wagonPaint = "<HHHH";
+        } else {
+            this.wagonPaint = "HHHH>";
+        }
 
-    private HeadType headType;
-
-    public Head(String headType) {
-        if (headType.equals("HEAD"))
-            this.headType = HeadType.HEAD;
-        else
-            this.headType = HeadType.END;
-    }
-
-    @Override
-    public String paint() {
-        if (headType == HeadType.HEAD)
-            return "<HHHH";
-        else
-            return "HHHH>";
     }
 
     @Override
@@ -28,7 +16,7 @@ class Head extends Wagon {
     }
 
     @Override
-    public boolean isEmpty() {
+    public boolean isEmptyCargo() {
         return false;
     }
 

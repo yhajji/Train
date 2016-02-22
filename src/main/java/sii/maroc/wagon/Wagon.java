@@ -9,6 +9,6 @@ public abstract class Wagon {
 
     public abstract void fill();
 
-    public abstract boolean isEmpty();
+    public abstract boolean isEmptyCargo();
 
 }

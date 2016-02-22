@@ -1,25 +1,22 @@
 package sii.maroc.wagon;
 
 class Cargo extends Wagon {
-    private boolean empty = true;
+    enum CargoState {
+        EMPTY, FULL
+    }
+
+    private CargoState cargoState = CargoState.EMPTY;
 
     public Cargo() {
         this.wagonPaint = "|____|";
     }
 
     public void fill() {
-        this.empty = false;
+        this.wagonPaint = "|^^^^|";
+        this.cargoState = CargoState.FULL;
     }
 
-    public boolean isEmpty() {
-        return empty;
+    public boolean isEmptyCargo() {
+        return (cargoState == CargoState.EMPTY);
     }
-
-    @Override
-    public String paint() {
-        if (!empty)
-            wagonPaint = "|^^^^|";
-        return wagonPaint;
-    }
-
 }
